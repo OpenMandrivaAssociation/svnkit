@@ -2,8 +2,8 @@
 %define section         free
 
 Name:           svnkit
-Version:        1.1.2
-Release:        %mkrel 1.1
+Version:        1.1.4
+Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -17,7 +17,7 @@ Source2:        svnkit-jsvn-script
 Source3:        svnkit-jsvnadmin-script
 Source4:        svnkit-jsvnlook-script  
 Source5:        svnkit-jsvnsync-script
-Patch0:         svnkit-1.1.2-no-javahl.patch
+Patch0:         svnkit-1.1.4-no-javahl.patch
 Requires:       ganymed-ssh2
 Requires:       svn-javahl
 BuildRequires:  ant
@@ -33,7 +33,7 @@ BuildArch:      noarch
 BuildRequires:  ganymed-ssh2
 BuildRequires:  junit
 BuildRequires:  svn-javahl
-Obsoletes:      javasvn
+Obsoletes:      javasvn < %{epoch}:%{version}-%{release}
 Provides:       javasvn = %{epoch}:%{version}-%{release}
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
