@@ -3,7 +3,7 @@
 
 Name:           svnkit
 Version:        1.1.4
-Release:        %mkrel 0.0.1
+Release:        %mkrel 0.0.2
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -24,8 +24,6 @@ BuildRequires:  ant
 BuildRequires:  jpackage-utils >= 0:1.6
 %if %{gcj_support}
 BuildRequires:  java-gcj-compat-devel
-Requires(post): java-gcj-compat
-Requires(postun): java-gcj-compat
 %else
 BuildRequires:  java-devel >= 0:1.4.2
 BuildArch:      noarch
