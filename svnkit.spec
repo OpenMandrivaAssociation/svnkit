@@ -3,7 +3,7 @@
 
 Name:           svnkit
 Version:        1.1.4
-Release:        %mkrel 0.0.2
+Release:        %mkrel 0.0.3
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -21,7 +21,7 @@ Patch0:         svnkit-1.1.4-no-javahl.patch
 Requires:       ganymed-ssh2
 Requires:       svn-javahl
 BuildRequires:  ant
-BuildRequires:  jpackage-utils >= 0:1.6
+BuildRequires:  java-rpmbuild >= 0:1.6
 %if %{gcj_support}
 BuildRequires:  java-gcj-compat-devel
 %else
