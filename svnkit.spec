@@ -33,7 +33,6 @@ BuildRequires:  junit
 BuildRequires:  svn-javahl
 Obsoletes:      javasvn < %{epoch}:%{version}-%{release}
 Provides:       javasvn = %{epoch}:%{version}-%{release}
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 SVNKit is a pure Java Subversion client library. You would like to use
