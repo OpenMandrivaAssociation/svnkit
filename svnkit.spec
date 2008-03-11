@@ -2,8 +2,8 @@
 %define section         free
 
 Name:           svnkit
-Version:        1.1.4
-Release:        %mkrel 0.0.3
+Version:        1.1.6
+Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -18,7 +18,8 @@ Source3:        svnkit-jsvnadmin-script
 Source4:        svnkit-jsvnlook-script  
 Source5:        svnkit-jsvnsync-script
 Patch0:         svnkit-1.1.4-no-javahl.patch
-Requires:       ganymed-ssh2
+Requires:       trilead-ssh2
+Requires:       jna
 Requires:       svn-javahl
 BuildRequires:  ant
 BuildRequires:  java-rpmbuild >= 0:1.6
@@ -28,7 +29,8 @@ BuildRequires:  java-gcj-compat-devel
 BuildRequires:  java-devel >= 0:1.4.2
 BuildArch:      noarch
 %endif
-BuildRequires:  ganymed-ssh2
+BuildRequires:  trilead-ssh2
+BuildRequires:  jna
 BuildRequires:  junit
 BuildRequires:  svn-javahl
 Obsoletes:      javasvn < %{epoch}:%{version}-%{release}
@@ -52,16 +54,14 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}
-%setup -q -n %{name}-src-%{version} -T -D -a 1
+%setup -q -n %{name}-src-%{version}.3855
+%setup -q -n %{name}-src-%{version}.3855 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
-%patch0 -p1
+%remove_java_binaries
 
-%{__rm} svnkit/src/org/tmatesoft/svn/core/io/repository/template.jar
-%{__rm} contrib/ganymed/ganymed.jar
-%{__ln_s} %{_javadir}/ganymed-ssh2.jar contrib/ganymed/ganymed.jar
-%{__rm} contrib/junit/junit.jar
+%{__ln_s} %{_javadir}/trilead-ssh2.jar contrib/trilead/trilead.jar
 %{__ln_s} %{_javadir}/junit.jar contrib/junit/junit.jar
+%{__ln_s} %{_javadir}/jna.jar contrib/jna/jna.jar
 
 %build
 export CLASSPATH=$(%{_bindir}/build-classpath svn-javahl)
