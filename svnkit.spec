@@ -2,7 +2,7 @@
 %define section         free
 
 Name:           svnkit
-Version:        1.1.6
+Version:        1.1.7
 Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Pure Java Subversion client library
@@ -54,8 +54,8 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}.3855
-%setup -q -n %{name}-src-%{version}.3855 -T -D -a 1
+%setup -q -n %{name}-src-%{version}.4142
+%setup -q -n %{name}-src-%{version}.4142 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
 %remove_java_binaries
 
@@ -92,9 +92,7 @@ popd
 
 %{_bindir}/find doc/examples -type f -name '*.java' | %{_bindir}/xargs %{__perl} -pi -e 's/\r$//g'
 
-%if %{gcj_support}
-%{_bindir}/aot-compile-rpm
-%endif
+%{gcj_compile}
 
 %clean
 %{__rm} -rf %{buildroot}
@@ -118,14 +116,9 @@ popd
 %{_javadir}/svnkit.jar
 %{_javadir}/svnkit-cli-%{version}.jar
 %{_javadir}/svnkit-cli.jar
-%if %{gcj_support}
-%dir %{_libdir}/gcj/%{name}
-%attr(-,root,root) %{_libdir}/gcj/%{name}/*
-%endif
+%{gcj_files}
 
 %files javadoc
 %defattr(0644,root,root,0755)
 %doc %{_javadocdir}/%{name}
 %doc %{_javadocdir}/%{name}-%{version}
-
-
