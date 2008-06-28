@@ -1,9 +1,9 @@
-%define gcj_support     1
+%define gcj_support     0
 %define section         free
 
 Name:           svnkit
-Version:        1.1.7
-Release:        %mkrel 0.0.1
+Version:        1.2.0
+Release:        %mkrel 0.0.1.b1
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -11,7 +11,7 @@ License:        BSD-style
 URL:            http://svnkit.com/
 # XXX: This contains the sequence library, but I cannot find the
 # XXX: original upstream source.
-Source0:        http://svnkit.com/org.tmatesoft.svn_%{version}.src.zip
+Source0:        http://svnkit.com/org.tmatesoft.svn_%{version}-beta.src.zip
 Source1:        svnkit-doc.tar.bz2
 Source2:        svnkit-jsvn-script
 Source3:        svnkit-jsvnadmin-script
@@ -54,8 +54,8 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}.4142
-%setup -q -n %{name}-src-%{version}.4142 -T -D -a 1
+%setup -q -n %{name}-src-%{version}.4402
+%setup -q -n %{name}-src-%{version}.4402 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
 %remove_java_binaries
 
@@ -66,7 +66,7 @@ Javadoc for %{name}.
 %build
 export CLASSPATH=$(%{_bindir}/build-classpath svn-javahl)
 export OPT_JAR_LIST=:
-%{ant} build-library build-cli compile-examples build-doc
+%{ant} build-library build-cli build-doc
 
 %install
 %{__rm} -rf %{buildroot}
