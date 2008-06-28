@@ -3,7 +3,7 @@
 
 Name:           svnkit
 Version:        1.2.0
-Release:        %mkrel 0.0.1.b1
+Release:        %mkrel 0.0.2.b1
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
