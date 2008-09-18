@@ -1,10 +1,10 @@
 %define gcj_support     0
 %define section         free
-%define eclipse_base	%{_datadir}/eclipse
+%define eclipse_base	%{_libdir}/eclipse
 
 Name:           svnkit
 Version:        1.2.0
-Release:        %mkrel 0.0.2.b4
+Release:        %mkrel 0.0.1.rc3
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -12,7 +12,7 @@ License:        BSD-style
 URL:            http://svnkit.com/
 # XXX: This contains the sequence library, but I cannot find the
 # XXX: original upstream source.
-Source0:        http://svnkit.com/org.tmatesoft.svn_%{version}-beta4.src.zip
+Source0:        http://svnkit.com/org.tmatesoft.svn_%{version}-rc3.src.zip
 Source1:        svnkit-doc.tar.bz2
 Source2:        svnkit-jsvn-script
 Source3:        svnkit-jsvnadmin-script
@@ -55,8 +55,8 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}.4583
-%setup -q -n %{name}-src-%{version}.4583 -T -D -a 1
+%setup -q -n %{name}-src-%{version}.4889
+%setup -q -n %{name}-src-%{version}.4889 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
 %remove_java_binaries
 
