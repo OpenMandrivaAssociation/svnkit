@@ -3,8 +3,8 @@
 %define eclipse_base	%{_libdir}/eclipse
 
 Name:           svnkit
-Version:        1.2.0
-Release:        %mkrel 0.0.3
+Version:        1.2.1
+Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Pure Java Subversion client library
 Group:          Development/Java
@@ -16,7 +16,7 @@ Source0:        http://svnkit.com/org.tmatesoft.svn_%{version}.src.zip
 Source1:        svnkit-doc.tar.bz2
 Source2:        svnkit-jsvn-script
 Source3:        svnkit-jsvnadmin-script
-Source4:        svnkit-jsvnlook-script  
+Source4:        svnkit-jsvnlook-script
 Source5:        svnkit-jsvnsync-script
 Patch0:         svnkit-1.1.4-no-javahl.patch
 Requires:       trilead-ssh2
@@ -55,8 +55,8 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}.4949
-%setup -q -n %{name}-src-%{version}.4949 -T -D -a 1
+%setup -q -n %{name}-src-%{version}.5297
+%setup -q -n %{name}-src-%{version}.5297 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
 %remove_java_binaries
 
