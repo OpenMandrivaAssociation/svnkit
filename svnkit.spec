@@ -3,7 +3,7 @@
 %define eclipse_base	%{_libdir}/eclipse
 
 Name:           svnkit
-Version:        1.2.2
+Version:        1.3.0
 Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Pure Java Subversion client library
@@ -55,8 +55,8 @@ Group:          Development/Java
 Javadoc for %{name}.
 
 %prep
-%setup -q -n %{name}-src-%{version}.5405
-%setup -q -n %{name}-src-%{version}.5405 -T -D -a 1
+%setup -q -n %{name}-src-%{version}.5847
+%setup -q -n %{name}-src-%{version}.5847 -T -D -a 1
 %{_bindir}/find . -type d -name .svn | %{_bindir}/xargs -t %{__rm} -r
 %remove_java_binaries
 
