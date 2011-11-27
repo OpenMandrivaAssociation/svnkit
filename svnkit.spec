@@ -13,7 +13,7 @@
 
 Name:           svnkit
 Version:        1.3.4
-Release:        2
+Release:        4
 Summary:        Pure Java Subversion client library
 
 Group:          Development/Java
