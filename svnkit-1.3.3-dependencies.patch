@@ -1,0 +1,61 @@
+--- svnkit-eclipse/org.tmatesoft.svnkit/MANIFEST.MF.orig	2009-08-11 23:09:44.000000000 +0300
++++ svnkit-eclipse/org.tmatesoft.svnkit/MANIFEST.MF	2009-12-03 11:22:40.006747135 +0200
+@@ -14,6 +14,7 @@ Require-Bundle: com.sun.jna;bundle-versi
+ Bundle-ClassPath: .,
+  svnkit.jar,
+  svnkit-javahl.jar,
++ svn-javahl.jar,
+  trilead.jar,
+  sqljet.%sqljet.version%.jar,
+  antlr-runtime-%antlr.version%.jar
+--- build.xml.orig	2009-11-24 12:52:48.000000000 +0200
++++ build.xml	2009-12-03 11:25:45.749957330 +0200
+@@ -34,7 +34,8 @@
+ 
+         <path id="library.classpath">
+             <pathelement location="contrib/trilead/trilead.jar" />
+-            <pathelement location="contrib/jna/jna.jar" />            
++            <pathelement location="contrib/jna/jna.jar" /> 
++        	 <pathelement location="contrib/javahl/svn-javahl.jar" />
+             <pathelement location="contrib/sqljet/antlr-runtime-${antlr.version}.jar" />            
+             <pathelement location="contrib/sqljet/sqljet.jar" />            
+ 
+@@ -43,11 +44,11 @@
+             <pathelement path="svnkit/bin" />
+         </path>
+ 
+-        <javac debug="true" destdir="contrib/javahl/bin" srcdir="contrib/javahl/src">
++        <!--javac debug="true" destdir="contrib/javahl/bin" srcdir="contrib/javahl/src">
+             <exclude name="**/SVNClient.java" />
+             <exclude name="**/SVNAdmin.java" />
+             <exclude name="**/Path.java" />
+-        </javac>
++        </javac-->
+         <javac debug="true" destdir="contrib/sequence/bin" srcdir="contrib/sequence/src" />
+         <javac debug="true" destdir="svnkit/bin" srcdir="svnkit/src" classpathref="library.classpath">
+             <exclude name="org/tmatesoft/svn/util/SVNTest.java"/>
+@@ -304,11 +305,11 @@
+         <zip destfile="build/lib/svnkitsrc.zip">
+             <fileset dir="svnkit/src" />
+             <fileset dir="svnkit-eclipse/org.tmatesoft.svnkit/src" />
+-            <fileset dir="contrib/javahl/src">
++<!--            <fileset dir="contrib/javahl/src">
+             	<exclude name="org/tigris/subversion/javahl/SVNAdmin.java"/>
+             	<exclude name="org/tigris/subversion/javahl/SVNClient.java"/>
+                 <exclude name="org/tigris/subversion/javahl/Path.java"/>
+-            </fileset>
++            </fileset>-->
+             <fileset dir="contrib/sequence/src" />
+             <fileset dir="${basedir}" >
+                 <include name="COPYING" />
+--- svnkit-eclipse/com.sun.jna/MANIFEST.MF.orig	2009-11-13 21:05:48.000000000 +0200
++++ svnkit-eclipse/com.sun.jna/MANIFEST.MF	2009-12-03 13:06:12.934956961 +0200
+@@ -4,7 +4,7 @@ Bundle-Name: JNA Library Plug-in
+ Bundle-SymbolicName: com.sun.jna
+ Bundle-Version: %jna.version%
+ Bundle-RequiredExecutionEnvironment: J2SE-1.4
+-Bundle-ClassPath: .
++Bundle-ClassPath: jna.jar
+ Export-Package: com.sun.jna,
+  com.sun.jna.win32,
+  com.sun.jna.ptr
