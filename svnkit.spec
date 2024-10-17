@@ -19,7 +19,7 @@ Summary:        Pure Java Subversion client library
 Group:          Development/Java
 # License located at http://svnkit.com/license.html
 License:        TMate License and ASL 1.1
-URL:            http://www.svnkit.com/
+URL:            https://www.svnkit.com/
 # original source located at: http://www.svnkit.com/org.tmatesoft.svn_%{version}.src.zip
 # repackaged removing binary dependencies using:
 # zip $FILE -d \*.jar
